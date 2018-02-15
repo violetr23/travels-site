@@ -1,0 +1,19 @@
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/*Para que padding y border de all elements no incrementen su ancho*/
+* {
+    box-sizing: border-box;
+}
+
+a {
+   color: $mainOrange;
+}
