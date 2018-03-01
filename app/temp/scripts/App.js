@@ -11211,6 +11211,7 @@ class RevealOnScroll {
 
 class StickyHeader {
     constructor() {
+        this.lazyImages = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".lazyload");
         this.siteHeader = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".site-header");
         this.headerTriggerElement = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".large-hero__title");
         /*Llamo al metodo en el constructor para que se ejecute
@@ -11220,6 +11221,13 @@ class StickyHeader {
         this.headerLinks = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(".primary-nav a");
         this.createPageSectionWaypoints();
         this.addSmoothScrolling();
+        this.refreshWaypoints();
+    }
+    /*Para solucionar el conflicto de lazyload y waypoints */
+    refreshWaypoints() {
+        this.lazyImages.on('load', function(){
+            Waypoint.refreshAll();
+        });
     }
 
     addSmoothScrolling() {
