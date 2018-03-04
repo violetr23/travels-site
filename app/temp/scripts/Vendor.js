@@ -73,28 +73,25 @@
 /* 6 */,
 /* 7 */,
 /* 8 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__temp_scripts_modernizr__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__temp_scripts_modernizr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__temp_scripts_modernizr__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_picturefill__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_picturefill___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_picturefill__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lazysizes__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lazysizes___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_lazysizes__);
 
-/* Para que las images responsive funcionen en todos los
-navegadores*/
 
-/*Cuando utilizamos packages como lazy sozes que se ejecutan
-por su cuenta, sin necesidad de que escribamos codigo JS,
-es una buena practica importalor en un archivo independiente*/
+__webpack_require__(9);
 
+__webpack_require__(10);
+
+__webpack_require__(11);
 
 /***/ }),
 /* 9 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 /*!
  * modernizr v3.5.0
@@ -120,9 +117,8 @@ es una buena practica importalor en un archivo independiente*/
  * of control over the experience.
 */
 
-;(function(window, document, undefined){
+;(function (window, document, undefined) {
   var tests = [];
-  
 
   /**
    *
@@ -149,7 +145,7 @@ es una buena practica importalor en un archivo independiente*/
     _q: [],
 
     // Stub these for people who are listening
-    on: function(test, cb) {
+    on: function on(test, cb) {
       // I don't really think people should do this, but we can
       // safe guard it a bit.
       // -- NOTE:: this gets WAY overridden in src/addTest for actual async tests.
@@ -157,34 +153,29 @@ es una buena practica importalor en un archivo independiente*/
       // but the code to *disallow* sync tests in the real version of this
       // function is actually larger than this.
       var self = this;
-      setTimeout(function() {
+      setTimeout(function () {
         cb(self[test]);
       }, 0);
     },
 
-    addTest: function(name, fn, options) {
-      tests.push({name: name, fn: fn, options: options});
+    addTest: function addTest(name, fn, options) {
+      tests.push({ name: name, fn: fn, options: options });
     },
 
-    addAsyncTest: function(fn) {
-      tests.push({name: null, fn: fn});
+    addAsyncTest: function addAsyncTest(fn) {
+      tests.push({ name: null, fn: fn });
     }
   };
 
-  
-
   // Fake some of Object.create so we can force non test results to be non "own" properties.
-  var Modernizr = function() {};
+  var Modernizr = function Modernizr() {};
   Modernizr.prototype = ModernizrProto;
 
   // Leak modernizr globally when you `require` it rather than force it here.
   // Overwrite name so constructor name is nicer :D
   Modernizr = new Modernizr();
 
-  
-
   var classes = [];
-  
 
   /**
    * is returns a boolean if the typeof an obj is exactly type.
@@ -197,7 +188,7 @@ es una buena practica importalor en un archivo independiente*/
    */
 
   function is(obj, type) {
-    return typeof obj === type;
+    return (typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) === type;
   }
   ;
 
@@ -241,7 +232,6 @@ es una buena practica importalor en un archivo independiente*/
         // Run the test, or use the raw value if it's not a function
         result = is(feature.fn, 'function') ? feature.fn() : feature.fn;
 
-
         // Set each of the names on the Modernizr object
         for (nameIdx = 0; nameIdx < featureNames.length; nameIdx++) {
           featureName = featureNames[nameIdx];
@@ -279,7 +269,6 @@ es una buena practica importalor en un archivo independiente*/
    */
 
   var docElement = document.documentElement;
-  
 
   /**
    * A convenience helper to check if the document we are running in is an SVG document
@@ -289,7 +278,6 @@ es una buena practica importalor en un archivo independiente*/
    */
 
   var isSVG = docElement.nodeName.toLowerCase() === 'svg';
-  
 
   /**
    * setClasses takes an array of class names and adds them to the root element
@@ -325,7 +313,6 @@ es una buena practica importalor en un archivo independiente*/
         docElement.className = className;
       }
     }
-
   }
 
   ;
@@ -335,24 +322,19 @@ es una buena practica importalor en un archivo independiente*/
    *   elem.style.WebkitBorderRadius
    * instead of something like the following (which is technically incorrect):
    *   elem.style.webkitBorderRadius
-
-   * WebKit ghosts their properties in lowercase but Opera & Moz do not.
+    * WebKit ghosts their properties in lowercase but Opera & Moz do not.
    * Microsoft uses a lowercase `ms` instead of the correct `Ms` in IE8+
    *   erik.eae.net/archives/2008/03/10/21.48.10/
-
-   * More here: github.com/Modernizr/Modernizr/issues/issue/21
+    * More here: github.com/Modernizr/Modernizr/issues/issue/21
    *
    * @access private
    * @returns {string} The string representing the vendor-specific style properties
    */
 
   var omPrefixes = 'Moz O ms Webkit';
-  
 
-  var cssomPrefixes = (ModernizrProto._config.usePrefixes ? omPrefixes.split(' ') : []);
+  var cssomPrefixes = ModernizrProto._config.usePrefixes ? omPrefixes.split(' ') : [];
   ModernizrProto._cssomPrefixes = cssomPrefixes;
-  
-
 
   /**
    * contains checks to see if a string contains another string
@@ -406,11 +388,9 @@ es una buena practica importalor en un archivo independiente*/
   };
 
   // Clean up this element
-  Modernizr._q.push(function() {
+  Modernizr._q.push(function () {
     delete modElem.elem;
   });
-
-  
 
   var mStyle = {
     style: modElem.elem.style
@@ -418,11 +398,9 @@ es una buena practica importalor en un archivo independiente*/
 
   // kill ref for gc, must happen before mod.elem is removed, so we unshift on to
   // the front of the queue.
-  Modernizr._q.unshift(function() {
+  Modernizr._q.unshift(function () {
     delete mStyle.style;
   });
-
-  
 
   /**
    * getBody returns the body of a document, or an element that can stand in for
@@ -519,7 +497,6 @@ es una buena practica importalor en un archivo independiente*/
     }
 
     return !!ret;
-
   }
 
   ;
@@ -535,12 +512,11 @@ es una buena practica importalor en un archivo independiente*/
    */
 
   function domToCSS(name) {
-    return name.replace(/([A-Z])/g, function(str, m1) {
+    return name.replace(/([A-Z])/g, function (str, m1) {
       return '-' + m1.toLowerCase();
     }).replace(/^ms-/, '-ms-');
   }
   ;
-
 
   /**
    * wrapper around getComputedStyle, to fix issues with Firefox returning null when
@@ -606,16 +582,16 @@ es una buena practica importalor en un archivo independiente*/
     }
     // Otherwise fall back to at-rule (for Opera 12.x)
     else if ('CSSSupportsRule' in window) {
-      // Build a condition string for every prefixed variant
-      var conditionText = [];
-      while (i--) {
-        conditionText.push('(' + domToCSS(props[i]) + ':' + value + ')');
+        // Build a condition string for every prefixed variant
+        var conditionText = [];
+        while (i--) {
+          conditionText.push('(' + domToCSS(props[i]) + ':' + value + ')');
+        }
+        conditionText = conditionText.join(' or ');
+        return injectElementWithStyles('@supports (' + conditionText + ') { #modernizr { position: absolute; } }', function (node) {
+          return computedStyle(node, null, 'position') == 'absolute';
+        });
       }
-      conditionText = conditionText.join(' or ');
-      return injectElementWithStyles('@supports (' + conditionText + ') { #modernizr { position: absolute; } }', function(node) {
-        return computedStyle(node, null, 'position') == 'absolute';
-      });
-    }
     return undefined;
   }
   ;
@@ -631,7 +607,7 @@ es una buena practica importalor en un archivo independiente*/
    */
 
   function cssToDOM(name) {
-    return name.replace(/([a-z])-([a-z])/g, function(str, m1, m2) {
+    return name.replace(/([a-z])-([a-z])/g, function (str, m1, m2) {
       return m1 + m2.toUpperCase();
     }).replace(/^-/, '');
   }
@@ -720,9 +696,9 @@ es una buena practica importalor en un archivo independiente*/
         // Otherwise just return true, or the property name if this is a
         // `prefixed()` call
         else {
-          cleanElems();
-          return prefixed == 'pfx' ? prop : true;
-        }
+            cleanElems();
+            return prefixed == 'pfx' ? prop : true;
+          }
       }
     }
     cleanElems();
@@ -749,9 +725,8 @@ es una buena practica importalor en un archivo independiente*/
    * ```
    */
 
-  var domPrefixes = (ModernizrProto._config.usePrefixes ? omPrefixes.toLowerCase().split(' ') : []);
+  var domPrefixes = ModernizrProto._config.usePrefixes ? omPrefixes.toLowerCase().split(' ') : [];
   ModernizrProto._domPrefixes = domPrefixes;
-  
 
   /**
    * fnBind is a super small [bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) polyfill.
@@ -764,7 +739,7 @@ es una buena practica importalor en un archivo independiente*/
    */
 
   function fnBind(fn, that) {
-    return function() {
+    return function () {
       return fn.apply(that, arguments);
     };
   }
@@ -828,7 +803,7 @@ es una buena practica importalor en un archivo independiente*/
   function testPropsAll(prop, prefixed, elem, value, skipValueTest) {
 
     var ucProp = prop.charAt(0).toUpperCase() + prop.slice(1),
-      props = (prop + ' ' + cssomPrefixes.join(ucProp + ' ') + ucProp).split(' ');
+        props = (prop + ' ' + cssomPrefixes.join(ucProp + ' ') + ucProp).split(' ');
 
     // did they call .prefixed('boxSizing') or are we just testing a prop?
     if (is(prefixed, 'string') || is(prefixed, 'undefined')) {
@@ -836,7 +811,7 @@ es una buena practica importalor en un archivo independiente*/
 
       // otherwise, they called .prefixed('requestAnimationFrame', window[, elem])
     } else {
-      props = (prop + ' ' + (domPrefixes).join(ucProp + ' ') + ucProp).split(' ');
+      props = (prop + ' ' + domPrefixes.join(ucProp + ' ') + ucProp).split(' ');
       return testDOMProps(props, prefixed, elem);
     }
   }
@@ -847,8 +822,6 @@ es una buena practica importalor en un archivo independiente*/
   // Note that the property names must be provided in the camelCase variant.
   // Modernizr.testAllProps('boxSizing')
   ModernizrProto.testAllProps = testPropsAll;
-
-  
 
   /**
    * testAllProps determines whether a given CSS property is supported in the browser
@@ -891,53 +864,52 @@ es una buena practica importalor en un archivo independiente*/
     return testPropsAll(prop, undefined, undefined, value, skipValueTest);
   }
   ModernizrProto.testAllProps = testAllProps;
-  
-/*!
-{
-  "name": "Flexbox",
-  "property": "flexbox",
-  "caniuse": "flexbox",
-  "tags": ["css"],
-  "notes": [{
-    "name": "The _new_ flexbox",
-    "href": "http://dev.w3.org/csswg/css3-flexbox"
-  }],
-  "warnings": [
-    "A `true` result for this detect does not imply that the `flex-wrap` property is supported; see the `flexwrap` detect."
-  ]
-}
-!*/
-/* DOC
-Detects support for the Flexible Box Layout model, a.k.a. Flexbox, which allows easy manipulation of layout order and sizing within a container.
-*/
+
+  /*!
+  {
+    "name": "Flexbox",
+    "property": "flexbox",
+    "caniuse": "flexbox",
+    "tags": ["css"],
+    "notes": [{
+      "name": "The _new_ flexbox",
+      "href": "http://dev.w3.org/csswg/css3-flexbox"
+    }],
+    "warnings": [
+      "A `true` result for this detect does not imply that the `flex-wrap` property is supported; see the `flexwrap` detect."
+    ]
+  }
+  !*/
+  /* DOC
+  Detects support for the Flexible Box Layout model, a.k.a. Flexbox, which allows easy manipulation of layout order and sizing within a container.
+  */
 
   Modernizr.addTest('flexbox', testAllProps('flexBasis', '1px', true));
 
-/*!
-{
-  "name": "SVG",
-  "property": "svg",
-  "caniuse": "svg",
-  "tags": ["svg"],
-  "authors": ["Erik Dahlstrom"],
-  "polyfills": [
-    "svgweb",
-    "raphael",
-    "amplesdk",
-    "canvg",
-    "svg-boilerplate",
-    "sie",
-    "dojogfx",
-    "fabricjs"
-  ]
-}
-!*/
-/* DOC
-Detects support for SVG in `<embed>` or `<object>` elements.
-*/
+  /*!
+  {
+    "name": "SVG",
+    "property": "svg",
+    "caniuse": "svg",
+    "tags": ["svg"],
+    "authors": ["Erik Dahlstrom"],
+    "polyfills": [
+      "svgweb",
+      "raphael",
+      "amplesdk",
+      "canvg",
+      "svg-boilerplate",
+      "sie",
+      "dojogfx",
+      "fabricjs"
+    ]
+  }
+  !*/
+  /* DOC
+  Detects support for SVG in `<embed>` or `<object>` elements.
+  */
 
   Modernizr.addTest('svg', !!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect);
-
 
   // Run each test
   testRunner();
@@ -956,9 +928,7 @@ Detects support for SVG in `<embed>` or `<object>` elements.
   // Leak Modernizr namespace
   window.Modernizr = Modernizr;
 
-
-;
-
+  ;
 })(window, document);
 
 /***/ }),
